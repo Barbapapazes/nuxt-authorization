@@ -1,6 +1,6 @@
 <script lang="ts" setup generic="Ability extends BouncerAbility<any>">
-import type { AuthorizerResponse, BouncerAbility } from '../../utils/types'
-import { denies } from '../utils/bouncer'
+import type { AuthorizerResponse, BouncerAbility } from '../../utils'
+import { denies } from '#imports'
 
 const props = defineProps<{
   bouncerAbility: Ability

@@ -1,7 +1,6 @@
 import { type H3Event } from 'h3'
-import type { AuthorizerResponse, BouncerAbility } from '../../../utils/types'
-import { allows as _allows, denies as _denies, authorize as _authorize } from '../../../utils/bouncer'
-import { AuthorizationError } from '../../../utils/error'
+import type { AuthorizerResponse, BouncerAbility } from '../../../utils'
+import { allows as _allows, denies as _denies, authorize as _authorize, AuthorizationError } from '../../../utils'
 import { useNitroApp, createError } from '#imports'
 
 /**

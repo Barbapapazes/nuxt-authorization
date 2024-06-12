@@ -1,8 +1,7 @@
 /* eslint @typescript-eslint/no-explicit-any: off */
 
-import type { BouncerAbility, AuthorizerResponse } from '../../utils/types'
-import { allows as _allows, denies as _denies, authorize as _authorize } from '../../utils/bouncer'
-import { AuthorizationError } from '../../utils/error'
+import type { BouncerAbility, AuthorizerResponse } from '../../utils'
+import { allows as _allows, denies as _denies, authorize as _authorize, AuthorizationError } from '../../utils'
 import { useNuxtApp, createError } from '#imports'
 
 /**
