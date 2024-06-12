@@ -1,1 +1,1 @@
-export { defineAbility, deny, allow } from '../utils/ability'
+export { defineAbility, deny, allow } from '../utils'
