@@ -7,7 +7,18 @@ Find and replace all on all files (CMD+SHIFT+F):
 - Description: My new Nuxt module
 -->
 
-# My Module
+# Nuxt Authorization
+
+Handle authorization with ease in both Nuxt and Nitro.
+
+> [!NOTE]
+> In the future, this module could be available as a Nitro module and a Nuxt module.
+
+<!--
+- define ability
+- ability return an authorization response => boolean or custom object
+- bouncer execute the ability to allow, deny or authorize the request -->
+
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -42,27 +53,27 @@ That's it! You can now use My Module in your Nuxt app ✨
 
 <details>
   <summary>Local development</summary>
-  
+
   ```bash
   # Install dependencies
   npm install
-  
+
   # Generate type stubs
   npm run dev:prepare
-  
+
   # Develop with the playground
   npm run dev
-  
+
   # Build the playground
   npm run dev:build
-  
+
   # Run ESLint
   npm run lint
-  
+
   # Run Vitest
   npm run test
   npm run test:watch
-  
+
   # Release new version
   npm run release
   ```
