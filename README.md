@@ -268,7 +268,7 @@ As a counterpart, you can use the `Cannot` component to render the button only i
 
 ## Credits
 
-This module, both code and design, is heavily inspired by the [Adonis Bouncer](https://docs.adonisjs.com/guides/security/authorization). It's a well written package and I do not think reinventing the wheel every time is unnecessary.
+This module, both code and design, is heavily inspired by the [Adonis Bouncer](https://docs.adonisjs.com/guides/security/authorization). It's a well written package and I think reinventing the wheel every time is unnecessary.
 
 ## License
 
