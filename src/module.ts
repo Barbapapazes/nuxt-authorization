@@ -7,6 +7,9 @@ export default defineNuxtModule<ModuleOptions>({
     name: 'nuxt-authorization',
     configKey: 'authorization',
     version,
+    compatibility: {
+      nuxt: '^3.0.0',
+    },
   },
   // Default configuration options of the Nuxt module
   defaults: {},
