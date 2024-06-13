@@ -48,7 +48,7 @@ jobs:
       - name: Prepare
         run: pnpm run dev:prepare
 
-      - name: Generate files
+      - name: Run build
         run: pnpm run prepack
 
   test:
