@@ -1,5 +1,8 @@
 import type { BouncerAbility, BouncerAuthorizer, AuthorizationResponse, AuthorizerResponse } from './types'
 
+/**
+ * @credit https://github.com/adonisjs/bouncer
+ */
 export type AuthorizerToAbility<Authorizer> = Authorizer extends (
   user: infer User,
   ...args: infer Args
@@ -13,6 +16,7 @@ export type AuthorizerToAbility<Authorizer> = Authorizer extends (
 
 /**
  * Define an ability that you can use to check if a user can perform an action.
+ * @credit https://github.com/adonisjs/bouncer
  */
 export function defineAbility<Authorizer extends BouncerAuthorizer<any>>(
   authorizer: Authorizer,
