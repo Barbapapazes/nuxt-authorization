@@ -52,13 +52,13 @@
     "@nuxt/module-builder": "^0.7.1",
     "@nuxt/schema": "^3.12.1",
     "@nuxt/test-utils": "^3.13.1",
-    "@types/node": "^20.14.2",
+    "@types/node": "^20.14.9",
     "changelogen": "^0.5.5",
     "eslint": "^9.4.0",
     "nuxt": "^3.12.1",
     "typescript": "latest",
     "vitest": "^1.6.0",
-    "vue-tsc": "^2.0.21"
+    "vue-tsc": "^2.0.24"
   },
   "packageManager": "pnpm@9.3.0+sha256.e1f9e8d1a16607a46dd3c158b5f7a7dc7945501d1c6222d454d63d033d1d918f"
 }
