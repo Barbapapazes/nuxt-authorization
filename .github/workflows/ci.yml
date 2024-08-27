@@ -66,6 +66,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - run: pnpm exec playwright-core install
+
       - name: Prepare
         run: pnpm run dev:prepare
 
