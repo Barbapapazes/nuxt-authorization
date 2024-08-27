@@ -2,12 +2,14 @@
 import type { AuthorizerResponse, BouncerAbility } from '../../utils'
 import { allows } from '#imports'
 
+type PropsArgs = Ability extends { original: (user: any, ...args: infer Args) => AuthorizerResponse } ? Args : never
+
 const props = defineProps<{
   bouncerAbility: Ability
-  args: Ability extends { original: (user: any, ...args: infer Args) => AuthorizerResponse } ? Args : never
+  args?: PropsArgs
 }>()
 
-const can = await allows(props.bouncerAbility, ...props.args)
+const can = await allows(props.bouncerAbility, ...(props.args ?? [] as unknown as PropsArgs))
 </script>
 
 <template>
