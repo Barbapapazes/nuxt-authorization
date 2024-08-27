@@ -44,23 +44,23 @@
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.12.1"
+    "@nuxt/kit": "^3.13.0"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^1.3.3",
+    "@nuxt/devtools": "^1.4.1",
     "@nuxt/eslint-config": "^0.3.13",
     "@nuxt/module-builder": "^0.7.1",
-    "@nuxt/schema": "^3.12.1",
-    "@nuxt/test-utils": "^3.13.1",
-    "@types/node": "^20.14.2",
+    "@nuxt/schema": "^3.13.0",
+    "@nuxt/test-utils": "^3.14.1",
+    "@types/node": "^20.16.1",
     "@vue/test-utils": "^2.4.6",
     "changelogen": "^0.5.5",
-    "eslint": "^9.4.0",
-    "nuxt": "^3.12.1",
+    "eslint": "^9.9.1",
+    "nuxt": "^3.13.0",
     "playwright-core": "^1.46.1",
     "typescript": "latest",
     "vitest": "^1.6.0",
-    "vue-tsc": "^2.0.21"
+    "vue-tsc": "^2.0.29"
   },
-  "packageManager": "pnpm@9.3.0+sha256.e1f9e8d1a16607a46dd3c158b5f7a7dc7945501d1c6222d454d63d033d1d918f"
+  "packageManager": "pnpm@9.9.0"
 }
