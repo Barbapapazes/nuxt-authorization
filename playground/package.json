@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",
-    "generate": "nuxi generate"
+    "generate": "nuxi generate",
+    "typecheck": "nuxi typecheck"
   },
   "dependencies": {
     "nuxt": "^3.13.0"
