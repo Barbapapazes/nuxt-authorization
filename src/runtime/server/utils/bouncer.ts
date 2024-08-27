@@ -9,8 +9,6 @@ import { useNitroApp, createError } from '#imports'
 export async function allows<Ability extends BouncerAbility<any>>(event: H3Event, bouncerAbility: Ability, ...args: Ability extends { original: (user: any, ...args: infer Args) => AuthorizerResponse } ? Args : never): Promise<boolean> {
   const user = await useNitroApp().$authorization.resolveServerUser(event)
 
-  console.log('user', user)
-
   return _allows(bouncerAbility, user, ...args)
 }
 
