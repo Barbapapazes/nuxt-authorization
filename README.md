@@ -137,6 +137,14 @@ Easy!
 
 ### Define Abilities
 
+> [!NOTE]
+> With the upcoming Nuxt4, you can store your abilities in the `app/utils/abilities.ts` file. Then, you can import them in your server folder using `~/utils/abilities`.
+> See an example with [the project Orion](https://github.com/Barbapapazes/orion/blob/main/app/utils/users/abilities.ts).
+
+> [!NOTE]
+> With Nuxt4, a new `shared` directory will be introduced to easily share code between the client and the server.
+> See [the issue](https://github.com/nuxt/nuxt/issues/28675).
+
 Now the resolvers are set up, you can define your first ability. An ability is a function that takes at least the user, and returns a boolean to indicate if the user can perform the action. It can also take additional arguments.
 
 I recommend to create a new file `utils/abilities.ts` to create your abilities:
@@ -212,8 +220,8 @@ The module provides 2 components help you to conditionally show part of the UI. 
 ```vue
 <template>
   <Can
-    :ability="editPost"
-    :args="[post]"
+    :bouncer-ability="editPost"
+    :args="[post]" // Optional if the ability does not take any arguments
   >
     <button>Edit</button>
   </Can>
@@ -227,8 +235,8 @@ As a counterpart, you can use the `Cannot` component to render the button only i
 ```vue
 <template>
   <Cannot
-    :ability="editPost"
-    :args="[post]"
+    :bouncer-ability="editPost"
+    :args="[post]" // Optional if the ability does not take any arguments
   >
     <p>You're not allowed to edit the post.</p>
   </Cannot>
