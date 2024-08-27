@@ -2,6 +2,8 @@ import { defineNuxtModule, createResolver, addImports, addImportsDir, addCompone
 import { version } from '../package.json'
 import type { ModuleOptions } from './types'
 
+export * from './types'
+
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'nuxt-authorization',
