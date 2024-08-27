@@ -15,7 +15,6 @@ const product: Product = {
 
     <Can
       :bouncer-ability="createProduct"
-      :args="[]"
     >
       <p>
         I can create a product.

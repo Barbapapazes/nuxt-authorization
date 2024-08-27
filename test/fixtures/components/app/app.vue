@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { defineAbility } from '#imports'
-import { Can } from '#components'
 
 const can = defineAbility(() => {
   return true
@@ -15,7 +14,6 @@ const cannot = defineAbility(() => {
   <div>
     <Can
       :bouncer-ability="can"
-      :args="[]"
     >
       <div data-testid="view-can">
         Can
@@ -24,7 +22,6 @@ const cannot = defineAbility(() => {
 
     <Can
       :bouncer-ability="cannot"
-      :args="[]"
     >
       <div data-testid="view-not-can">
         Cannot
@@ -33,7 +30,6 @@ const cannot = defineAbility(() => {
 
     <Cannot
       :bouncer-ability="can"
-      :args="[]"
     >
       <div data-testid="view-cannot">
         Cannot
@@ -42,7 +38,6 @@ const cannot = defineAbility(() => {
 
     <Cannot
       :bouncer-ability="cannot"
-      :args="[]"
     >
       <div data-testid="view-not-cannot">
         Can
