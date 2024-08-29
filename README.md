@@ -67,35 +67,22 @@ For the Nitro server, create a new plugin in `server/plugins/authorization-resol
 
 ```ts
 export default defineNitroPlugin((nitroApp) => {
-  nitroApp.$authorization = {
-    resolveServerUser: (event) => {
-      // Your logic to retrieve the user from the server
-    },
-  }
+  nitroApp.hooks.hook('request', async (event) => {
+    event.context.$authorization = {
+      resolveServerUser: () => {
+        // Your logic to retrieve the user from the server
+      },
+    }
+  })
 })
 ```
 
-This resolver receive the event. You can use it to retrieve the user from the session or the request. It should return the user object or `null` if the user is not authenticated. It can by async.
+> [!NOTE]
+> Read more about the [`event.context`](https://h3.unjs.io/guide/event#eventcontext)
+
+This resolver is setup within the hook `request` and receive the event. You can use it to retrieve the user from the session or the request. It should return the user object or `null` if the user is not authenticated. It can by async.
 
 Generally, you use a plugin to fetch the user when the app starts and then store it. Resolver functions should only return the stored user and not fetch it again (otherwise, you could have severe performance issues).
-
-TypeScript should complain about a missing '$authorization' property on the `nitroApp` object. You can fix this by adding a declaration in `server/nitro.d.ts`:
-
-```ts
-import type { H3Event } from 'h3'
-
-declare module 'nitropack' {
-  interface NitroApp {
-    $authorization: {
-      resolveServerUser: (event: H3Event) => object | null | Promise<object | null>
-    }
-  }
-}
-
-export {}
-```
-
-You can replace `object` with the type of your user object.
 
 #### Example with `nuxt-auth-utils`
 
@@ -124,12 +111,14 @@ Nitro plugin:
 
 ```ts
 export default defineNitroPlugin((nitroApp) => {
-  nitroApp.$authorization = {
-    resolveServerUser: async (event) => {
-      const session = await getUserSession(event)
-      return session.user ?? null
-    },
-  }
+  nitroApp.hooks.hook('request', async (event) => {
+    event.context.$authorization = {
+      resolveServerUser: async () => {
+        const session = await getUserSession(event)
+        return session.user ?? null
+      },
+    }
+  })
 })
 ```
 
