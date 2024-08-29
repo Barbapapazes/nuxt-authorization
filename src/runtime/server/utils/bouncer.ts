@@ -1,13 +1,13 @@
 import { type H3Event } from 'h3'
 import type { AuthorizerResponse, BouncerAbility } from '../../../utils'
 import { allows as _allows, denies as _denies, authorize as _authorize, AuthorizationError } from '../../../utils'
-import { useNitroApp, createError } from '#imports'
+import { createError } from '#imports'
 
 /**
  * Allows a user to perform an action based on their role and the data.
  */
 export async function allows<Ability extends BouncerAbility<any>>(event: H3Event, bouncerAbility: Ability, ...args: Ability extends { original: (user: any, ...args: infer Args) => AuthorizerResponse } ? Args : never): Promise<boolean> {
-  const user = await useNitroApp().$authorization.resolveServerUser(event)
+  const user = await event.context.$authorization.resolveServerUser()
 
   return _allows(bouncerAbility, user, ...args)
 }
@@ -16,7 +16,7 @@ export async function allows<Ability extends BouncerAbility<any>>(event: H3Event
  * Denies a user to perform an action based on their role and the data.
  */
 export async function denies<Ability extends BouncerAbility<any>>(event: H3Event, bouncerAbility: Ability, ...args: Ability extends { original: (user: any, ...args: infer Args) => AuthorizerResponse } ? Args : never): Promise<boolean> {
-  const user = await useNitroApp().$authorization.resolveServerUser(event)
+  const user = await event.context.$authorization.resolveServerUser()
 
   return _denies(bouncerAbility, user, ...args)
 }
@@ -26,7 +26,7 @@ export async function denies<Ability extends BouncerAbility<any>>(event: H3Event
  */
 export async function authorize<Ability extends BouncerAbility<any>>(event: H3Event, bouncerAbility: Ability, ...args: Ability extends { original: (user: any, ...args: infer Args) => AuthorizerResponse } ? Args : never): Promise<void> {
   try {
-    const user = await useNitroApp().$authorization.resolveServerUser(event)
+    const user = await event.context.$authorization.resolveServerUser()
 
     await _authorize(bouncerAbility, user, ...args)
   }
