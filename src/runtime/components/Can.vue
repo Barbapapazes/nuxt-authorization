@@ -9,7 +9,10 @@ const props = defineProps<{
   args?: PropsArgs
 }>()
 
-const can = await allows(props.bouncerAbility, ...(props.args ?? [] as unknown as PropsArgs))
+const can = ref(false)
+watchEffect(async () => {
+  can.value = await allows(props.bouncerAbility, ...(props.args ?? [] as unknown as PropsArgs))
+})
 </script>
 
 <template>
