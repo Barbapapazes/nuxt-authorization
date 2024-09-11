@@ -14,6 +14,10 @@ describe('Components', async () => {
     expect(await page.getByTestId('view-not-can').isVisible()).toBeFalsy()
     expect(await page.getByTestId('view-cannot').isVisible()).toBeFalsy()
     expect(await page.getByTestId('view-not-cannot').isVisible()).toBeTruthy()
+    expect(await page.getByTestId('view-bouncer-can').isVisible()).toBeTruthy()
+    expect(await page.getByTestId('view-bouncer-cannot').isVisible()).toBeTruthy()
+    expect(await page.getByTestId('view-not-bouncer-cannot').isVisible()).toBeFalsy()
+    expect(await page.getByTestId('view-not-bouncer-can').isVisible()).toBeFalsy()
 
     await page.close()
   })
