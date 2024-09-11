@@ -43,5 +43,37 @@ const cannot = defineAbility(() => {
         Can
       </div>
     </Cannot>
+
+    <Bouncer
+      :bouncer-ability="can"
+    >
+      <template v-slot:can> 
+        <div data-testid="view-bouncer-can">
+          Can
+        </div>
+      </template>
+  
+      <template v-slot:cannot> 
+        <div data-testid="view-not-bouncer-cannot">
+          Cannot
+        </div>
+      </template>
+    </Bouncer>
+
+    <Bouncer
+      :bouncer-ability="cannot"
+    >
+      <template v-slot:can> 
+        <div data-testid="view-not-bouncer-can">
+          Cannot
+        </div>
+      </template>
+  
+      <template v-slot:cannot> 
+        <div data-testid="view-bouncer-cannot">
+          Can
+        </div>
+      </template>
+    </Bouncer>
   </div>
 </template>
