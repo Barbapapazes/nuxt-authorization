@@ -1,11 +1,11 @@
-import type { BouncerAbility, AuthorizerResponse } from '../../utils'
+import type { BouncerAbility, BouncerArgs } from '../../utils'
 import { allows as _allows, denies as _denies, authorize as _authorize, AuthorizationError } from '../../utils'
 import { useNuxtApp, createError } from '#imports'
 
 /**
  * Client side utility to check if a user can perform an action.
  */
-export async function allows<Ability extends BouncerAbility<any>>(bouncerAbility: Ability, ...args: Ability extends { original: (user: any, ...args: infer Args) => AuthorizerResponse } ? Args : never): Promise<boolean> {
+export async function allows<Ability extends BouncerAbility<any>>(bouncerAbility: Ability, ...args: BouncerArgs<Ability>): Promise<boolean> {
   const user = await useNuxtApp().$authorization.resolveClientUser()
 
   return _allows(bouncerAbility, user, ...args)
@@ -14,7 +14,7 @@ export async function allows<Ability extends BouncerAbility<any>>(bouncerAbility
 /**
  * Client side utility to check if a user cannot perform an action.
  */
-export async function denies<Ability extends BouncerAbility<any>>(bouncerAbility: Ability, ...args: Ability extends { original: (user: any, ...args: infer Args) => AuthorizerResponse } ? Args : never): Promise<boolean> {
+export async function denies<Ability extends BouncerAbility<any>>(bouncerAbility: Ability, ...args: BouncerArgs<Ability>): Promise<boolean> {
   const user = await useNuxtApp().$authorization.resolveClientUser()
 
   return _denies(bouncerAbility, user, ...args)
@@ -23,7 +23,7 @@ export async function denies<Ability extends BouncerAbility<any>>(bouncerAbility
 /**
  * Client side utility to throw an error if a user is not allowed to perform an action.
  */
-export async function authorize<Ability extends BouncerAbility<any>>(bouncerAbility: Ability, ...args: Ability extends { original: (user: any, ...args: infer Args) => AuthorizerResponse } ? Args : never): Promise<void> {
+export async function authorize<Ability extends BouncerAbility<any>>(bouncerAbility: Ability, ...args: BouncerArgs<Ability>): Promise<void> {
   try {
     const user = await useNuxtApp().$authorization.resolveClientUser()
 

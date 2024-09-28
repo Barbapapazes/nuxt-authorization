@@ -108,7 +108,6 @@ export default defineNuxtPlugin({
 
 Nitro plugin:
 
-
 ```ts
 export default defineNitroPlugin((nitroApp) => {
   nitroApp.hooks.hook('request', async (event) => {
@@ -129,7 +128,7 @@ Easy!
 > [!NOTE]
 > With the upcoming Nuxt4, you can store your abilities in the `app/utils/abilities.ts` file. Then, you can import them in your server folder using `~/utils/abilities`.
 > See an example with [the project Orion](https://github.com/Barbapapazes/orion/blob/main/app/utils/users/abilities.ts).
-
+>
 > [!NOTE]
 > With Nuxt4, a new `shared` directory will be introduced to easily share code between the client and the server.
 > See [the issue](https://github.com/nuxt/nuxt/issues/28675).
@@ -151,7 +150,7 @@ If you have many abilities, you could prefer to create a directory `utils/abilit
 By default, guests are not allowed to perform any action and the ability is not called. This behavior can be changed per ability:
 
 ```ts
-export const listPosts = defineAbility({ allowGuests: true }, (user: User | null) => true)
+export const listPosts = defineAbility({ allowGuest: true }, (user: User | null) => true)
 ```
 
 Now, unauthenticated users can list posts.

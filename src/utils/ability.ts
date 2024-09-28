@@ -10,7 +10,7 @@ export type AuthorizerToAbility<Authorizer> = Authorizer extends (
   ? {
       allowGuest: boolean
       original: Authorizer
-      execute(user: User, ...args: Args): AuthorizerResponse
+      execute(user: User | null, ...args: Args): AuthorizerResponse
     }
   : never
 
