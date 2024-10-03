@@ -1,4 +1,4 @@
-import type { User } from '~/types/user'
+import type { User } from '~~/shared/types/user'
 
 export default defineNitroPlugin((nitroApp) => {
   // https://github.com/nuxt/nuxt/issues/25710#issuecomment-1935622896

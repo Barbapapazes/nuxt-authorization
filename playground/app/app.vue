@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import type { Product } from '~/types/product'
+import type { Product } from '~~/shared/types/product'
+import { createProduct, editProduct, deleteProduct } from '~~/shared/abilities'
 
 const product: Product = {
   id: 1,
@@ -29,5 +30,22 @@ const product: Product = {
         I cannot edit a product.
       </p>
     </Cannot>
+
+    <Bouncer
+      :bouncer-ability="deleteProduct"
+      :args="[product]"
+    >
+      <template #can>
+        <p>
+          I can delete a product.
+        </p>
+      </template>
+
+      <template #cannot>
+        <p>
+          I cannot delete a product.
+        </p>
+      </template>
+    </Bouncer>
   </div>
 </template>
