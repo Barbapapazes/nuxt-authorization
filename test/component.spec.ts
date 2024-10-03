@@ -10,14 +10,17 @@ describe('Components', async () => {
   it('should render correctly', async () => {
     const page = await createPage('/')
 
-    expect(await page.getByTestId('view-can').isVisible()).toBeTruthy()
-    expect(await page.getByTestId('view-not-can').isVisible()).toBeFalsy()
-    expect(await page.getByTestId('view-cannot').isVisible()).toBeFalsy()
-    expect(await page.getByTestId('view-not-cannot').isVisible()).toBeTruthy()
-    expect(await page.getByTestId('view-bouncer-can').isVisible()).toBeTruthy()
-    expect(await page.getByTestId('view-bouncer-cannot').isVisible()).toBeTruthy()
-    expect(await page.getByTestId('view-not-bouncer-cannot').isVisible()).toBeFalsy()
-    expect(await page.getByTestId('view-not-bouncer-can').isVisible()).toBeFalsy()
+    expect(await page.getByTestId('can-visible').isVisible()).toBeTruthy()
+    expect(await page.getByTestId('can-invisible').isVisible()).toBeFalsy()
+
+    expect(await page.getByTestId('cannot-invisible').isVisible()).toBeFalsy()
+    expect(await page.getByTestId('cannot-visible').isVisible()).toBeTruthy()
+
+    expect(await page.getByTestId('bouncer-can-visible').isVisible()).toBeTruthy()
+    expect(await page.getByTestId('bouncer-cannot-invisible').isVisible()).toBeFalsy()
+
+    expect(await page.getByTestId('bouncer-can-invisible').isVisible()).toBeFalsy()
+    expect(await page.getByTestId('bouncer-cannot-visible').isVisible()).toBeTruthy()
 
     await page.close()
   })
