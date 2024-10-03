@@ -128,7 +128,7 @@ Easy!
 > [!NOTE]
 > With the upcoming Nuxt4, you can store your abilities in the `app/utils/abilities.ts` file. Then, you can import them in your server folder using `~/utils/abilities`.
 > See an example with [the project Orion](https://github.com/Barbapapazes/orion/blob/main/app/utils/users/abilities.ts).
->
+
 > [!NOTE]
 > With Nuxt4, a new `shared` directory will be introduced to easily share code between the client and the server.
 > See [the issue](https://github.com/nuxt/nuxt/issues/28675).
