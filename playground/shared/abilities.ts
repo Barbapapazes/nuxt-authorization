@@ -1,5 +1,5 @@
-import type { Product } from '~/types/product'
-import type { User } from '~/types/user'
+import type { Product } from '~~/shared/types/product'
+import type { User } from '~~/shared/types/user'
 
 export const listProducts = defineAbility({ allowGuest: true }, () => true)
 

@@ -1,5 +1,5 @@
-import type { Product } from '~/types/product'
-import { editProduct } from '~/utils/abilities'
+import type { Product } from '~~/shared/types/product'
+import { editProduct } from '~~/shared/abilities'
 
 export default defineEventHandler(async (event) => {
   const product: Product = {

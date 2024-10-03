@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import type { Product } from '~/types/product'
+import type { Product } from '~~/shared/types/product'
+import { createProduct, editProduct, deleteProduct } from '~~/shared/abilities'
 
 const product: Product = {
   id: 1,
