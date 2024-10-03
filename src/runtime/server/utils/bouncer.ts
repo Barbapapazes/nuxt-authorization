@@ -1,5 +1,5 @@
 import type { H3Event } from 'h3'
-import type { BouncerAbility } from '../../../utils'
+import type { BouncerAbility, BouncerArgs } from '../../../utils'
 import { allows as _allows, denies as _denies, authorize as _authorize, AuthorizationError } from '../../../utils'
 import { createError } from '#imports'
 
