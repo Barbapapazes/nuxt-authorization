@@ -239,12 +239,12 @@ The `Bouncer` component offers a more flexible and centralized way to handle bot
   :bouncer-ability="editPost"
   :args="[post]" // Optional if the ability does not take any arguments
 >
-  <template v-slot:can> 
-    <button>Edit</button> 
+  <template #can>
+    <button>Edit</button>
   </template>
-  
-  <template v-slot:cannot> 
-    <p>You're not allowed to edit the post.</p> 
+
+  <template #cannot>
+    <p>You're not allowed to edit the post.</p>
   </template>
 </Bouncer>
 ```
