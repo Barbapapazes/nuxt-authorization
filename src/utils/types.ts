@@ -30,4 +30,7 @@ export type BouncerAbility<User extends Record<string, any>> = {
   allowGuest: boolean
 }
 
+/**
+ * Represents the arguments that will be passed to the authorizer function.
+ */
 export type BouncerArgs<Ability extends BouncerAbility<any>> = Ability extends { original: (user: any, ...args: infer Args) => AuthorizerResponse } ? Args : never
