@@ -1,7 +1,7 @@
 declare module '#app' {
   interface NuxtApp {
     $authorization: {
-      resolveClientUser: () => Promise<any>
+      resolveClientUser: <User extends Record<string, any>>() => Promise<User | null>
     }
   }
 }
@@ -9,7 +9,15 @@ declare module '#app' {
 declare module 'vue' {
   interface ComponentCustomProperties {
     $authorization: {
-      resolveClientUser: () => Promise<any>
+      resolveClientUser: <User extends Record<string, any>>() => Promise<User | null>
+    }
+  }
+}
+
+declare module 'h3' {
+  interface H3EventContext {
+    $authorization: {
+      resolveServerUser: <User extends Record<string, any>>() => Promise<User | null>
     }
   }
 }

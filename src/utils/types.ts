@@ -19,13 +19,18 @@ export type AuthorizerResponse =
 /**
  * Represents the authorizer function that will be executed to determine if a user is authorized to perform an action.
  */
-export type BouncerAuthorizer<User> = (user: User, ...args: any[]) => AuthorizerResponse
+export type BouncerAuthorizer<User extends Record<string, any>> = (user: User, ...args: any[]) => AuthorizerResponse
 
 /**
  * Represents an ability that can be used by a bouncer.
  */
-export type BouncerAbility<User> = {
+export type BouncerAbility<User extends Record<string, any>> = {
   original: BouncerAuthorizer<User>
   execute: (user: User | null, ...args: any[]) => AuthorizerResponse
   allowGuest: boolean
 }
+
+/**
+ * Represents the arguments that will be passed to the authorizer function.
+ */
+export type BouncerArgs<Ability extends BouncerAbility<any>> = Ability extends { original: (user: any, ...args: infer Args) => AuthorizerResponse } ? Args : never

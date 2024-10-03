@@ -1,12 +1,10 @@
 <script lang="ts" setup generic="Ability extends BouncerAbility<any>">
-import type { AuthorizerResponse, BouncerAbility } from '../../utils'
+import type { BouncerArgs, BouncerAbility } from '../../utils'
 import { allows, ref, watchEffect } from '#imports'
-
-type PropsArgs = Ability extends { original: (user: any, ...args: infer Args) => AuthorizerResponse } ? Args : never
 
 const props = defineProps<{
   bouncerAbility: Ability
-  args?: PropsArgs
+  args?: BouncerArgs<Ability>
 }>()
 
 const can = ref(await resolve())
@@ -17,14 +15,12 @@ watchEffect(async () => {
 })
 
 async function resolve() {
-  return await allows(props.bouncerAbility, ...(props.args ?? [] as unknown as PropsArgs))
+  return await allows(props.bouncerAbility, ...(props.args ?? [] as any))
 }
 </script>
 
 <template>
-  <template
-    v-if="can"
-  >
+  <template v-if="can">
     <slot />
   </template>
 </template>

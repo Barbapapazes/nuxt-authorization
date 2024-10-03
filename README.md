@@ -108,7 +108,6 @@ export default defineNuxtPlugin({
 
 Nitro plugin:
 
-
 ```ts
 export default defineNitroPlugin((nitroApp) => {
   nitroApp.hooks.hook('request', async (event) => {
@@ -151,7 +150,7 @@ If you have many abilities, you could prefer to create a directory `utils/abilit
 By default, guests are not allowed to perform any action and the ability is not called. This behavior can be changed per ability:
 
 ```ts
-export const listPosts = defineAbility({ allowGuests: true }, (user: User | null) => true)
+export const listPosts = defineAbility({ allowGuest: true }, (user: User | null) => true)
 ```
 
 Now, unauthenticated users can list posts.
