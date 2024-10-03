@@ -1,6 +1,6 @@
 <script lang="ts" setup generic="Ability extends BouncerAbility<any>">
 import type { AuthorizerResponse, BouncerAbility } from '../../utils'
-import { allows } from '#imports'
+import { allows, ref, watchEffect } from '#imports'
 
 type PropsArgs = Ability extends { original: (user: any, ...args: infer Args) => AuthorizerResponse } ? Args : never
 
@@ -9,7 +9,16 @@ const props = defineProps<{
   args?: PropsArgs
 }>()
 
-const can = await allows(props.bouncerAbility, ...(props.args ?? [] as unknown as PropsArgs))
+const can = ref(await resolve())
+
+// `watchEffect` is not called on the server so we need to call set an initial value
+watchEffect(async () => {
+  can.value = await resolve()
+})
+
+async function resolve() {
+  return await allows(props.bouncerAbility, ...(props.args ?? [] as unknown as PropsArgs))
+}
 </script>
 
 <template>
