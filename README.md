@@ -231,6 +231,23 @@ As a counterpart, you can use the `Cannot` component to render the button only i
 </template>
 ```
 
+The `Bouncer` component offers a more flexible and centralized way to handle both can and cannot scenarios within a single component. Instead of using separate `Can` and `Cannot` components, you can leverage the Bouncer component and its [named slots](https://vuejs.org/guide/components/slots.html#named-slots) to handle both states in a unified block.
+
+```vue
+<Bouncer
+  :bouncer-ability="editPost"
+  :args="[post]" // Optional if the ability does not take any arguments
+>
+  <template #can>
+    <button>Edit</button>
+  </template>
+
+  <template #cannot>
+    <p>You're not allowed to edit the post.</p>
+  </template>
+</Bouncer>
+```
+
 ## Contribution
 
 <details>
