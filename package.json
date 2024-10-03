@@ -1,6 +1,6 @@
 {
   "name": "nuxt-authorization",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Authorization module for managing permissions on the Nuxt app and the Nitro server.",
   "author": "Estéban Soubiran <esteban@soubiran.dev> (https://soubiran.dev)",
   "license": "MIT",

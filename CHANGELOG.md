@@ -1,6 +1,35 @@
 # Changelog
 
 
+## v0.2.0
+
+[compare changes](https://github.com/barbapapazes/nuxt-authorization/compare/v0.1.0...v0.2.0)
+
+### 🚀 Enhancements
+
+- `Bouncer` component ([#19](https://github.com/barbapapazes/nuxt-authorization/pull/19))
+- Add reactivity to components ([#18](https://github.com/barbapapazes/nuxt-authorization/pull/18))
+
+### 💅 Refactors
+
+- Use compatibility v4 in playground ([27a5610](https://github.com/barbapapazes/nuxt-authorization/commit/27a5610))
+- ⚠️  Types ([#23](https://github.com/barbapapazes/nuxt-authorization/pull/23))
+
+### 🏡 Chore
+
+- Update deps ([7fa5adf](https://github.com/barbapapazes/nuxt-authorization/commit/7fa5adf))
+- Lint ([fef9562](https://github.com/barbapapazes/nuxt-authorization/commit/fef9562))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Types ([#23](https://github.com/barbapapazes/nuxt-authorization/pull/23))
+
+### ❤️ Contributors
+
+- Daniele Nicosia ([@zAlweNy26](http://github.com/zAlweNy26))
+- Matthias Esterl ([@madc](http://github.com/madc))
+- Barbapapazes <e.soubiran25@gmail.com>
+
 ## v0.1.0
 
 [compare changes](https://github.com/barbapapazes/nuxt-authorization/compare/v0.0.4...v0.1.0)
