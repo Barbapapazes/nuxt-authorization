@@ -208,7 +208,7 @@ The module provides 2 components help you to conditionally show part of the UI. 
 ```vue
 <template>
   <Can
-    :bouncer-ability="editPost"
+    :ability="editPost"
     :args="[post]" // Optional if the ability does not take any arguments
   >
     <button>Edit</button>
@@ -223,7 +223,7 @@ As a counterpart, you can use the `Cannot` component to render the button only i
 ```vue
 <template>
   <Cannot
-    :bouncer-ability="editPost"
+    :ability="editPost"
     :args="[post]" // Optional if the ability does not take any arguments
   >
     <p>You're not allowed to edit the post.</p>
@@ -235,7 +235,7 @@ The `Bouncer` component offers a more flexible and centralized way to handle bot
 
 ```vue
 <Bouncer
-  :bouncer-ability="editPost"
+  :ability="editPost"
   :args="[post]" // Optional if the ability does not take any arguments
 >
   <template #can>
