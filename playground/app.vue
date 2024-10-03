@@ -29,5 +29,22 @@ const product: Product = {
         I cannot edit a product.
       </p>
     </Cannot>
+
+    <Bouncer
+      :bouncer-ability="deleteProduct"
+      :args="[product]"
+    >
+      <template #can>
+        <p>
+          I can delete a product.
+        </p>
+      </template>
+
+      <template #cannot>
+        <p>
+          I cannot delete a product.
+        </p>
+      </template>
+    </Bouncer>
   </div>
 </template>
