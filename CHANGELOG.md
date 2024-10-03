@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.3.0
+
+[compare changes](https://github.com/barbapapazes/nuxt-authorization/compare/v0.2.0...v0.3.0)
+
+### 💅 Refactors
+
+- ⚠️  Less verbose components arguments ([#25](https://github.com/barbapapazes/nuxt-authorization/pull/25))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Less verbose components arguments ([#25](https://github.com/barbapapazes/nuxt-authorization/pull/25))
+
+### ❤️ Contributors
+
+- Daniele Nicosia <zdanymc@gmail.com>
+
 ## v0.2.0
 
 [compare changes](https://github.com/barbapapazes/nuxt-authorization/compare/v0.1.0...v0.2.0)
