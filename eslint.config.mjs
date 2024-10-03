@@ -17,6 +17,6 @@ export default createConfigForNuxt({
 }).overrideRules({
   '@typescript-eslint/no-explicit-any': 'off',
   'vue/multi-word-component-names': ['error', {
-    ignores: ['Can', 'Cannot'],
+    ignores: ['Can', 'Cannot', 'Bouncer'],
   }],
 })
