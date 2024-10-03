@@ -3,7 +3,7 @@ import type { BouncerAbility, BouncerArgs } from '../../utils'
 import { allows, ref, watchEffect } from '#imports'
 
 const props = defineProps<{
-  bouncerAbility: Ability
+  ability: Ability
   args?: BouncerArgs<Ability>
 }>()
 
@@ -15,7 +15,7 @@ watchEffect(async () => {
 })
 
 async function resolve() {
-  return await allows(props.bouncerAbility, ...(props.args ?? [] as any))
+  return await allows(props.ability, ...(props.args ?? [] as any))
 }
 </script>
 

@@ -13,7 +13,7 @@ const cannot = defineAbility(() => {
 <template>
   <div>
     <Can
-      :bouncer-ability="can"
+      :ability="can"
     >
       <div data-testid="can-visible">
         Can Visible
@@ -21,7 +21,7 @@ const cannot = defineAbility(() => {
     </Can>
 
     <Can
-      :bouncer-ability="cannot"
+      :ability="cannot"
     >
       <div data-testid="can-invisible">
         Can Invisible
@@ -29,7 +29,7 @@ const cannot = defineAbility(() => {
     </Can>
 
     <Cannot
-      :bouncer-ability="can"
+      :ability="can"
     >
       <div data-testid="cannot-invisible">
         Cannot Invisible
@@ -37,7 +37,7 @@ const cannot = defineAbility(() => {
     </Cannot>
 
     <Cannot
-      :bouncer-ability="cannot"
+      :ability="cannot"
     >
       <div data-testid="cannot-visible">
         Cannot Visible
@@ -45,7 +45,7 @@ const cannot = defineAbility(() => {
     </Cannot>
 
     <Bouncer
-      :bouncer-ability="can"
+      :ability="can"
     >
       <template #can>
         <div data-testid="bouncer-can-visible">
@@ -61,7 +61,7 @@ const cannot = defineAbility(() => {
     </Bouncer>
 
     <Bouncer
-      :bouncer-ability="cannot"
+      :ability="cannot"
     >
       <template #can>
         <div data-testid="bouncer-can-invisible">

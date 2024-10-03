@@ -23,7 +23,7 @@ const product = ref<Product>({
     >
 
     <Can
-      :bouncer-ability="createProduct"
+      :ability="createProduct"
     >
       <p>
         I can create a product.
@@ -31,7 +31,7 @@ const product = ref<Product>({
     </Can>
 
     <Cannot
-      :bouncer-ability="editProduct"
+      :ability="editProduct"
       :args="[product]"
     >
       <p>
@@ -40,7 +40,7 @@ const product = ref<Product>({
     </Cannot>
 
     <Bouncer
-      :bouncer-ability="deleteProduct"
+      :ability="deleteProduct"
       :args="[product]"
     >
       <template #can>
