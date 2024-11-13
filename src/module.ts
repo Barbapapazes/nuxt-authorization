@@ -44,6 +44,7 @@ export default defineNuxtModule<ModuleOptions>({
     addImportsDir(resolve('./runtime/utils'))
     addComponentsDir({
       path: resolve('./runtime/components'),
+      ignore: ['Tag.ts'],
     })
     addServerImports(defineAbilityImport)
 

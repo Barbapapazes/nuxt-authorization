@@ -1,10 +1,12 @@
 <script lang="ts" setup generic="Ability extends BouncerAbility<any>">
 import type { BouncerAbility, BouncerArgs } from '../../utils'
+import Tag from './Tag'
 import { allows, ref, watchEffect } from '#imports'
 
 const props = defineProps<{
   ability: Ability
   args?: BouncerArgs<Ability>
+  as?: keyof HTMLElementTagNameMap
 }>()
 
 const can = ref(await resolve())
@@ -20,10 +22,16 @@ async function resolve() {
 </script>
 
 <template>
-  <template v-if="can">
+  <Tag
+    v-if="can"
+    :as
+  >
     <slot name="can" />
-  </template>
-  <template v-else>
+  </Tag>
+  <Tag
+    v-else
+    :as
+  >
     <slot name="cannot" />
-  </template>
+  </Tag>
 </template>
