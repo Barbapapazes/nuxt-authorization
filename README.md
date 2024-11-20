@@ -126,16 +126,12 @@ Easy!
 ### Define Abilities
 
 > [!NOTE]
-> With the upcoming Nuxt4, you can store your abilities in the `app/utils/abilities.ts` file. Then, you can import them in your server folder using `~/utils/abilities`.
-> See an example with [the project Orion](https://github.com/Barbapapazes/orion/blob/main/app/utils/users/abilities.ts).
-
-> [!NOTE]
-> With Nuxt4, a new `shared` directory will be introduced to easily share code between the client and the server.
-> See [the issue](https://github.com/nuxt/nuxt/issues/28675).
+> With Nuxt 4, a new `shared` directory will be introduced to easily share code between the client and the server.
+> See [the video from Alexander Lichter](https://youtu.be/_m5ct5e8nVo?si=2iNcPVMttlIq5fLR).
 
 Now the resolvers are set up, you can define your first ability. An ability is a function that takes at least the user, and returns a boolean to indicate if the user can perform the action. It can also take additional arguments.
 
-I recommend to create a new file `utils/abilities.ts` to create your abilities:
+I recommend to create a new file `shared/utils/abilities.ts` to create your abilities:
 
 ```ts
 export const listPosts = defineAbility(() => true) // Only authenticated users can list posts
@@ -145,7 +141,7 @@ export const editPost = defineAbility((user: User, post: Post) => {
 })
 ```
 
-If you have many abilities, you could prefer to create a directory `utils/abilities/` and create a file for each ability. Having the abilities in the `utils` directory allows auto-import to work in the client while having a simple import in the server `~/utils/abilities`.
+If you have many abilities, you could prefer to create a directory `shared/utils/abilities/` and create a file for each ability. Having the abilities in the `shared/utils` directory allows auto-import to work in the client while having a simple import in the server `~~/shared/utils/abilities`. **Remember that the shared folder only exports the first level of the directory.** So you have to export the abilities in the `shared/utils/abilities/index.ts` file.
 
 By default, guests are not allowed to perform any action and the ability is not called. This behavior can be changed per ability:
 
@@ -157,12 +153,20 @@ Now, unauthenticated users can list posts.
 
 ### Use Abilities
 
-To use ability, you have access to 3 bouncer functions: `allows`, `denies`, and `authorize`. Both of them are available in the client and the server. _The implementation is different but the API is the same and it's entirely transparent the developer._
+To use ability, you have access to 3 bouncer functions: `allows`, `denies`, and `authorize`. Both of them are available in the client and the server. _The implementation is different but the API is (nearly) the same and it's entirely transparent the developer. On the server, the first parameter is the `event` from the handler._
 
 The `allows` function returns a boolean if the user can perform the action:
 
 ```ts
 if (await allows(listPosts)) {
+  // User can list posts
+}
+```
+
+_For the server:_
+
+```ts
+if (await allows(event, listPosts)) {
   // User can list posts
 }
 ```
@@ -175,12 +179,26 @@ if (await denies(editPost, post)) {
 }
 ```
 
+_For the server:_
+
+```ts
+if (await denies(event, editPost, post)) {
+  // User cannot edit the post
+}
+```
+
 The `authorize` function throws an error if the user cannot perform the action:
 
 ```ts
 await authorize(editPost, post)
 
 // User can edit the post
+```
+
+_For the server:_
+
+```ts
+await authorize(event, editPost, post)
 ```
 
 You can customize the error message and the status code per return value of the ability. This can be useful to return a 404 instead of a 403 to keep the user unaware of the existence of the resource.
@@ -246,6 +264,32 @@ The `Bouncer` component offers a more flexible and centralized way to handle bot
     <p>You're not allowed to edit the post.</p>
   </template>
 </Bouncer>
+```
+
+All of these components accept a prop named `as` to define the HTML tag to render. By default, it's a renderless component.
+
+```vue
+<Can
+  :ability="editPost"
+  :args="[post]"
+  as="div"
+>
+  <button>Edit</button>
+</Can>
+```
+
+This will render:
+
+```html
+<div>
+  <button>Edit</button>
+</div>
+```
+
+Instead of:
+
+```html
+<button>Edit</button>
 ```
 
 ## Contribution
