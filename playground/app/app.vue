@@ -25,6 +25,13 @@ const product = ref<Product>({
     <Can
       :ability="createProduct"
       as="p"
+      data-attrs="create-product"
+    >
+      I can create a product.
+    </Can>
+
+    <Can
+      :ability="createProduct"
     >
       I can create a product.
     </Can>
@@ -41,6 +48,19 @@ const product = ref<Product>({
       :ability="deleteProduct"
       :args="[product]"
       as="p"
+    >
+      <template #can>
+        I can delete a product.
+      </template>
+
+      <template #cannot>
+        I cannot delete a product.
+      </template>
+    </Bouncer>
+
+    <Bouncer
+      :ability="deleteProduct"
+      :args="[product]"
     >
       <template #can>
         I can delete a product.

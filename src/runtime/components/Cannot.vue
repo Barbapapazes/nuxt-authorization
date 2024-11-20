@@ -1,6 +1,6 @@
 <script lang="ts" setup generic="Ability extends BouncerAbility<any>">
 import type { BouncerAbility, BouncerArgs } from '../../utils'
-import Tag from './Tag'
+import { Primitive } from './Primitive'
 import { denies, ref, watchEffect } from '#imports'
 
 const props = defineProps<{
@@ -22,10 +22,10 @@ async function resolve() {
 </script>
 
 <template>
-  <Tag
+  <Primitive
     v-if="cannot"
-    :as
+    :as="props.as"
   >
     <slot />
-  </Tag>
+  </Primitive>
 </template>
