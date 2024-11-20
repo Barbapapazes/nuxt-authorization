@@ -21,6 +21,14 @@ const cannot = defineAbility(() => {
     </Can>
 
     <Can
+      :ability="can"
+      data-testid="as-can-visible"
+      as="p"
+    >
+      Can Visible
+    </Can>
+
+    <Can
       :ability="cannot"
     >
       <div data-testid="can-invisible">

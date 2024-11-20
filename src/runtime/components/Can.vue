@@ -1,10 +1,13 @@
 <script lang="ts" setup generic="Ability extends BouncerAbility<any>">
+import type { Component } from 'vue'
 import type { BouncerArgs, BouncerAbility } from '../../utils'
+import { Primitive } from './Primitive'
 import { allows, ref, watchEffect } from '#imports'
 
 const props = defineProps<{
   ability: Ability
   args?: BouncerArgs<Ability>
+  as?: string | Component
 }>()
 
 const can = ref(await resolve())
@@ -20,7 +23,10 @@ async function resolve() {
 </script>
 
 <template>
-  <template v-if="can">
+  <Primitive
+    v-if="can"
+    :as="props.as"
+  >
     <slot />
-  </template>
+  </Primitive>
 </template>

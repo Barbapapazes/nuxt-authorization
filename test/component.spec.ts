@@ -13,6 +13,8 @@ describe('Components', async () => {
     expect(await page.getByTestId('can-visible').isVisible()).toBeTruthy()
     expect(await page.getByTestId('can-invisible').isVisible()).toBeFalsy()
 
+    expect(await page.getByTestId('as-can-visible').isVisible()).toBeTruthy()
+
     expect(await page.getByTestId('cannot-invisible').isVisible()).toBeFalsy()
     expect(await page.getByTestId('cannot-visible').isVisible()).toBeTruthy()
 
