@@ -12,3 +12,5 @@ export const editProduct = defineAbility((user: User, product: Product) => {
 export const deleteProduct = defineAbility((user: User, product: Product) => {
   return user.id === product.ownerId
 })
+
+export const createCategory = defineAbility(() => true)

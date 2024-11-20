@@ -12,17 +12,22 @@ describe('Components', async () => {
 
     expect(await page.getByTestId('can-visible').isVisible()).toBeTruthy()
     expect(await page.getByTestId('can-invisible').isVisible()).toBeFalsy()
+    expect(await page.getByTestId('can-multiple-visible').isVisible()).toBeTruthy()
 
     expect(await page.getByTestId('as-can-visible').isVisible()).toBeTruthy()
 
     expect(await page.getByTestId('cannot-invisible').isVisible()).toBeFalsy()
     expect(await page.getByTestId('cannot-visible').isVisible()).toBeTruthy()
+    expect(await page.getByTestId('cannot-multiple-invisible').isVisible()).toBeFalsy()
 
     expect(await page.getByTestId('bouncer-can-visible').isVisible()).toBeTruthy()
     expect(await page.getByTestId('bouncer-cannot-invisible').isVisible()).toBeFalsy()
 
     expect(await page.getByTestId('bouncer-can-invisible').isVisible()).toBeFalsy()
     expect(await page.getByTestId('bouncer-cannot-visible').isVisible()).toBeTruthy()
+
+    expect(await page.getByTestId('bouncer-can-multiple-invisible').isVisible()).toBeFalsy()
+    expect(await page.getByTestId('bouncer-cannot-multiple-invisible').isVisible()).toBeFalsy()
 
     await page.close()
   })
