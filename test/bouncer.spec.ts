@@ -133,12 +133,12 @@ describe('Bouncer', () => {
     it('should throw if the user is not authorized', async () => {
       const ability = defineAbility(() => false)
 
-      const rejects = await expect(authorize(ability, {})).rejects
+      const rejects = expect(authorize(ability, {})).rejects
 
-      rejects.toThrow('Unauthorized')
-      rejects.toBeInstanceOf(AuthorizationError)
-      rejects.toHaveProperty('statusCode', 403)
-      rejects.toHaveProperty('message', 'Unauthorized')
+      await rejects.toThrow('Unauthorized')
+      await rejects.toBeInstanceOf(AuthorizationError)
+      await rejects.toHaveProperty('statusCode', 403)
+      await rejects.toHaveProperty('message', 'Unauthorized')
     })
 
     it('should handle async authorizers', async () => {
@@ -174,12 +174,12 @@ describe('Bouncer', () => {
     it('should throw an error with the specified message', async () => {
       const ability = defineAbility(() => deny({ message: 'Not Found', statusCode: 404 }))
 
-      const rejects = await expect(authorize(ability, {})).rejects
+      const rejects = expect(authorize(ability, {})).rejects
 
-      rejects.toThrow('Not Found')
-      rejects.toBeInstanceOf(AuthorizationError)
-      rejects.toHaveProperty('statusCode', 404)
-      rejects.toHaveProperty('message', 'Not Found')
+      await rejects.toThrow('Not Found')
+      await rejects.toBeInstanceOf(AuthorizationError)
+      await rejects.toHaveProperty('statusCode', 404)
+      await rejects.toHaveProperty('message', 'Not Found')
     })
   })
 })

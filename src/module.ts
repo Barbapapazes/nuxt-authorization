@@ -33,7 +33,7 @@ export default defineNuxtModule<ModuleOptions>({
       {
         name: 'deny',
         as: 'deny',
-        from: resolve('./runtime/ability'),
+        from: resolve('runtime/ability'),
       },
     ]
 
@@ -41,15 +41,15 @@ export default defineNuxtModule<ModuleOptions>({
      * App
      */
     addImports(defineAbilityImport)
-    addImportsDir(resolve('./runtime/utils'))
+    addImportsDir(resolve('runtime/utils'))
     addComponentsDir({
-      path: resolve('./runtime/components'),
+      path: resolve('runtime/components'),
     })
     addServerImports(defineAbilityImport)
 
     /**
      * Server
      */
-    addServerImportsDir(resolve('./runtime/server/utils'))
+    addServerImportsDir(resolve('runtime/server/utils'))
   },
 })
