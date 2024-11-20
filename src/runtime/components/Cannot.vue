@@ -1,4 +1,5 @@
 <script lang="ts" setup generic="Ability extends BouncerAbility<any>">
+import type { Component } from 'vue'
 import type { BouncerAbility, BouncerArgs } from '../../utils'
 import { Primitive } from './Primitive'
 import { denies, ref, watchEffect } from '#imports'
@@ -6,7 +7,7 @@ import { denies, ref, watchEffect } from '#imports'
 const props = defineProps<{
   ability: Ability
   args?: BouncerArgs<Ability>
-  as?: keyof HTMLElementTagNameMap
+  as?: string | Component
 }>()
 
 const cannot = ref(await resolve())
