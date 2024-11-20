@@ -1,6 +1,28 @@
 # Changelog
 
 
+## v0.3.1
+
+[compare changes](https://github.com/barbapapazes/nuxt-authorization/compare/v0.3.0...v0.3.1)
+
+### 🚀 Enhancements
+
+- Support `as` to change the rendered component ([#33](https://github.com/barbapapazes/nuxt-authorization/pull/33))
+
+### 🏡 Chore
+
+- Update deps ([438d261](https://github.com/barbapapazes/nuxt-authorization/commit/438d261))
+- Update deps ([6d3f037](https://github.com/barbapapazes/nuxt-authorization/commit/6d3f037))
+
+### ✅ Tests
+
+- Fix ([2cd1a71](https://github.com/barbapapazes/nuxt-authorization/commit/2cd1a71))
+
+### ❤️ Contributors
+
+- Barbapapazes <e.soubiran25@gmail.com>
+- Maarten Van Hunsel ([@maartenvanhunsel](http://github.com/maartenvanhunsel))
+
 ## v0.3.0
 
 [compare changes](https://github.com/barbapapazes/nuxt-authorization/compare/v0.2.0...v0.3.0)
