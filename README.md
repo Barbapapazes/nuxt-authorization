@@ -292,6 +292,27 @@ Instead of:
 <button>Edit</button>
 ```
 
+#### Multiple abilities
+
+If you possess multiple abilities, you can provide an array of abilities to the components. The component will render only if **all** of the abilities **match** the specified requirements of the component.
+
+```vue
+<Can :ability="[editPost, deletePost]" :args="[[post], [post]]" />
+
+<Cannot :ability="[editPost, deletePost]" :args="[[post], [post]]" />
+
+<Bouncer :ability="[editPost, deletePost]" :args="[[post], [post]]">
+  <template #can>
+    <button>Edit</button>
+    <button>Delete</button>
+  </template>
+
+  <template #cannot>
+    <p>You're not allowed to edit or delete the post.</p>
+  </template>
+</Bouncer>
+```
+
 ## Contribution
 
 <details>
