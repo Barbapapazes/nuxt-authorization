@@ -44,6 +44,14 @@ const cannot = defineAbility(() => {
       </div>
     </Can>
 
+    <Can
+      :ability="[can, cannot]"
+    >
+      <div data-testid="can-multiple-invisible">
+        Can Multiple Visible
+      </div>
+    </Can>
+
     <Cannot
       :ability="can"
     >
@@ -64,6 +72,14 @@ const cannot = defineAbility(() => {
       :ability="[can, cannot]"
     >
       <div data-testid="cannot-multiple-invisible">
+        Cannot Multiple Visible
+      </div>
+    </Cannot>
+
+    <Cannot
+      :ability="[cannot, cannot]"
+    >
+      <div data-testid="cannot-multiple-visible">
         Cannot Multiple Visible
       </div>
     </Cannot>
