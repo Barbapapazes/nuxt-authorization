@@ -5,8 +5,8 @@ import { Primitive } from './Primitive'
 import { denies, ref, watchEffect } from '#imports'
 
 const props = defineProps<{
-  ability: Ability
-  args?: BouncerArgs<Ability>
+  ability: Ability | Ability[]
+  args?: BouncerArgs<Ability> | BouncerArgs<Ability>[]
   as?: string | Component
 }>()
 
@@ -18,6 +18,11 @@ watchEffect(async () => {
 })
 
 async function resolve() {
+  if (Array.isArray(props.ability)) {
+    const results = await Promise.all(props.ability.map((ability, index) => denies(ability, ...(props.args?.[index] ?? [] as any))))
+    return results.every(Boolean)
+  }
+
   return await denies(props.ability, ...(props.args ?? [] as any))
 }
 </script>

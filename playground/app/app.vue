@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import type { Product } from '~~/shared/types/product'
-import { createProduct, editProduct, deleteProduct } from '~~/shared/abilities'
+import { createProduct, editProduct, deleteProduct, createCategory } from '~~/shared/abilities'
 
 const product = ref<Product>({
   id: 1,
   name: 'Product 1',
   price: 100,
   ownerId: 1,
+})
+
+const editableProduct = ref<Product>({
+  id: 2,
+  name: 'Product 2',
+  price: 200,
+  ownerId: 2,
 })
 </script>
 
@@ -33,7 +40,16 @@ const product = ref<Product>({
     <Can
       :ability="createProduct"
     >
-      I can create a product.
+      <p>I can create a product.</p>
+    </Can>
+
+    <Can
+      :ability="[editProduct, createCategory]"
+      :args="[[editableProduct]]"
+      as="p"
+      data-attrs="create-and-edit-product"
+    >
+      I can edit a product and create a new category.
     </Can>
 
     <Cannot
@@ -63,11 +79,11 @@ const product = ref<Product>({
       :args="[product]"
     >
       <template #can>
-        I can delete a product.
+        <p>I can delete a product.</p>
       </template>
 
       <template #cannot>
-        I cannot delete a product.
+        <p>I cannot delete a product.</p>
       </template>
     </Bouncer>
   </div>
