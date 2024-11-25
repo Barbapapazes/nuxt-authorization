@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.3.2
+
+[compare changes](https://github.com/barbapapazes/nuxt-authorization/compare/v0.3.1...v0.3.2)
+
+### 🚀 Enhancements
+
+- Support multiple abilities for components ([#35](https://github.com/barbapapazes/nuxt-authorization/pull/35))
+
+### 📖 Documentation
+
+- Update usage ([11bf5f4](https://github.com/barbapapazes/nuxt-authorization/commit/11bf5f4))
+
+### ✅ Tests
+
+- Update to handle more cases ([9b8e6f9](https://github.com/barbapapazes/nuxt-authorization/commit/9b8e6f9))
+
+### ❤️ Contributors
+
+- Barbapapazes <e.soubiran25@gmail.com>
+- Maarten Van Hunsel ([@maartenvanhunsel](http://github.com/maartenvanhunsel))
+
 ## v0.3.1
 
 [compare changes](https://github.com/barbapapazes/nuxt-authorization/compare/v0.3.0...v0.3.1)
