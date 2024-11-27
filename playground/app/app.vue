@@ -86,5 +86,14 @@ const editableProduct = ref<Product>({
         <p>I cannot delete a product.</p>
       </template>
     </Bouncer>
+
+    <Bouncer
+      v-slot="{ can }"
+      :ability="deleteProduct"
+      :args="[product]"
+      as="p"
+    >
+      Can I delete the product ? {{ can ? 'Yes' : 'No' }}
+    </Bouncer>
   </div>
 </template>
