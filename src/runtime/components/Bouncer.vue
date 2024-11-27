@@ -32,12 +32,18 @@ async function resolve() {
     :as="props.as"
   >
     <slot
-      v-if="can"
-      name="can"
+      v-if="$slots.default"
+      :can
     />
-    <slot
-      v-else
-      name="cannot"
-    />
+    <template v-else>
+      <slot
+        v-if="can"
+        name="can"
+      />
+      <slot
+        v-else
+        name="cannot"
+      />
+    </template>
   </Primitive>
 </template>
