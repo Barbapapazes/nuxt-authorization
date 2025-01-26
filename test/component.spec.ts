@@ -22,6 +22,10 @@ describe('Components', async () => {
     expect(await page.getByTestId('cannot-multiple-invisible').isVisible()).toBeFalsy()
     expect(await page.getByTestId('cannot-multiple-visible').isVisible()).toBeTruthy()
 
+    expect(await page.getByTestId('bouncer-default-visible').isVisible()).toBeTruthy()
+    expect(await page.getByTestId('bouncer-default-can-invisible').isVisible()).toBeFalsy()
+    expect(await page.getByTestId('bouncer-default-cannot-invisible').isVisible()).toBeFalsy()
+
     expect(await page.getByTestId('bouncer-can-visible').isVisible()).toBeTruthy()
     expect(await page.getByTestId('bouncer-cannot-invisible').isVisible()).toBeFalsy()
 
