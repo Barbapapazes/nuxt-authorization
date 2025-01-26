@@ -1,14 +1,26 @@
-<script lang="ts" setup generic="Ability extends BouncerAbility<any>">
+<script lang="ts">
 import type { Component } from 'vue'
 import type { BouncerAbility, BouncerArgs } from '../../utils'
 import { Primitive } from './Primitive'
 import { allows, ref, watchEffect } from '#imports'
 
-const props = defineProps<{
+export interface BouncerProps {
   ability: Ability | Ability[]
   args?: BouncerArgs<Ability> | BouncerArgs<Ability>[]
   as?: string | Component
-}>()
+}
+export interface BouncerEmits {}
+export interface BouncerSlots {
+  default?: (props?: { can: boolean }) => any
+  can?: (props?: object) => any
+  cannot?: (props?: object) => any
+}
+</script>
+
+<script lang="ts" setup generic="Ability extends BouncerAbility<any>">
+const props = defineProps<BouncerProps>()
+defineEmits<BouncerEmits>()
+const slots = defineSlots<BouncerSlots>()
 
 const can = ref(await resolve())
 
@@ -31,10 +43,11 @@ async function resolve() {
   <Primitive
     :as="props.as"
   >
-    <slot
-      v-if="$slots.default"
-      :can
-    />
+    <template v-if="slots.default">
+      <slot
+        :can
+      />
+    </template>
     <template v-else>
       <slot
         v-if="can"

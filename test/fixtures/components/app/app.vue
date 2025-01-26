@@ -84,6 +84,22 @@ const cannot = defineAbility(() => {
       </div>
     </Cannot>
 
+    <Bouncer :ability="can">
+      <div data-testid="bouncer-default-visible">
+        Bouncer Default Visible
+      </div>
+      <template #can>
+        <div data-testid="bouncer-default-can-invisible">
+          Bouncer Can Invisible
+        </div>
+      </template>
+      <template #cannot>
+        <div data-testid="bouncer-default-cannot-invisible">
+          Bouncer Cannot Invisible
+        </div>
+      </template>
+    </Bouncer>
+
     <Bouncer
       :ability="can"
     >
