@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.3.3
+
+[compare changes](https://github.com/barbapapazes/nuxt-authorization/compare/v0.3.2...v0.3.3)
+
+### 🚀 Enhancements
+
+- Support multiple slots in `Bouncer` component ([#38](https://github.com/barbapapazes/nuxt-authorization/pull/38))
+
+### 💅 Refactors
+
+- Bouncer ([3cdc571](https://github.com/barbapapazes/nuxt-authorization/commit/3cdc571))
+
+### ✅ Tests
+
+- Add missing bouncer tests ([c7f3881](https://github.com/barbapapazes/nuxt-authorization/commit/c7f3881))
+
+### ❤️ Contributors
+
+- Barbapapazes <e.soubiran25@gmail.com>
+- Daniele Nicosia <zdanymc@gmail.com>
+
 ## v0.3.2
 
 [compare changes](https://github.com/barbapapazes/nuxt-authorization/compare/v0.3.1...v0.3.2)
