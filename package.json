@@ -59,7 +59,7 @@
     "nuxt": "^3.14.1592",
     "playwright-core": "^1.49.0",
     "typescript": "latest",
-    "vitest": "^2.1.5",
+    "vitest": "^3.0.5",
     "vue-tsc": "^2.1.10"
   },
   "packageManager": "pnpm@9.14.2"
