@@ -5,15 +5,15 @@ import { Primitive } from './Primitive'
 import { allows, ref, watchEffect } from '#imports'
 
 export interface BouncerProps {
-  ability: Ability | Ability[]
-  args?: BouncerArgs<Ability> | BouncerArgs<Ability>[]
+  ability: BouncerAbility<any> | BouncerAbility<any>[]
+  args?: BouncerArgs<BouncerAbility<any>> | BouncerArgs<BouncerAbility<any>>[]
   as?: string | Component
 }
 export interface BouncerEmits {}
 export interface BouncerSlots {
-  default?: (props?: { can: boolean }) => any
-  can?: (props?: object) => any
-  cannot?: (props?: object) => any
+  default?: (props: { can: boolean }) => any
+  can?: (props: object) => any
+  cannot?: (props: object) => any
 }
 </script>
 
