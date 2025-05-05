@@ -1,6 +1,24 @@
 # Changelog
 
 
+## v0.3.4
+
+[compare changes](https://github.com/barbapapazes/nuxt-authorization/compare/v0.3.3...v0.3.4)
+
+### 🩹 Fixes
+
+- Bouncer type ([0cb3492](https://github.com/barbapapazes/nuxt-authorization/commit/0cb3492))
+
+### 🏡 Chore
+
+- Update deps ([a7cb453](https://github.com/barbapapazes/nuxt-authorization/commit/a7cb453))
+- Install playwright directly ([97391ed](https://github.com/barbapapazes/nuxt-authorization/commit/97391ed))
+- Esm only ([edb09b9](https://github.com/barbapapazes/nuxt-authorization/commit/edb09b9))
+
+### ❤️ Contributors
+
+- Barbapapazes <e.soubiran25@gmail.com>
+
 ## v0.3.3
 
 [compare changes](https://github.com/barbapapazes/nuxt-authorization/compare/v0.3.2...v0.3.3)
