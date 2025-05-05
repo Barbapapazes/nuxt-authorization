@@ -57,7 +57,7 @@
     "changelogen": "^0.6.1",
     "eslint": "^9.26.0",
     "nuxt": "^3.17.1",
-    "playwright-core": "^1.52.0",
+    "playwright": "^1.52.0",
     "typescript": "latest",
     "vitest": "^3.1.2",
     "vue-tsc": "^2.2.10"
