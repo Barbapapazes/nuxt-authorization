@@ -4,21 +4,21 @@ import type { BouncerAbility, BouncerArgs } from '../../utils'
 import { Primitive } from './Primitive'
 import { allows, ref, watchEffect } from '#imports'
 
-export interface BouncerProps {
+export interface BouncerProps<Ability extends BouncerAbility<any>> {
   ability: Ability | Ability[]
   args?: BouncerArgs<Ability> | BouncerArgs<Ability>[]
   as?: string | Component
 }
 export interface BouncerEmits {}
 export interface BouncerSlots {
-  default?: (props?: { can: boolean }) => any
+  default?: (props: { can: boolean }) => any
   can?: (props?: object) => any
   cannot?: (props?: object) => any
 }
 </script>
 
-<script lang="ts" setup generic="Ability extends BouncerAbility<any>">
-const props = defineProps<BouncerProps>()
+<script setup lang="ts" generic="Ability extends BouncerAbility<any>">
+const props = defineProps<BouncerProps<Ability>>()
 defineEmits<BouncerEmits>()
 const slots = defineSlots<BouncerSlots>()
 
