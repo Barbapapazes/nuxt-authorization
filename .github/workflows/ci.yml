@@ -73,3 +73,27 @@ jobs:
 
       - name: Run tests
         run: pnpm run test
+
+  continuous-release:
+    name: Continuous Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - run: corepack enable
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 20.5
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Prepare
+        run: pnpm run dev:prepare
+
+      - name: Prepare
+        run: pnpm run prepack
+
+      - name: Run continuous release
+        run: pnpm dlx pkg-pr-new publish
