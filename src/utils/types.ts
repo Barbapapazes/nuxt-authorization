@@ -10,11 +10,11 @@ export type AuthorizationResponse = {
 /**
  * Represents the response of an executed ability.
  */
-export type AuthorizerResponse =
-  | boolean
-  | AuthorizationResponse
-  | Promise<boolean
-  | AuthorizationResponse>
+export type AuthorizerResponse
+  = | boolean
+    | AuthorizationResponse
+    | Promise<boolean
+    | AuthorizationResponse>
 
 /**
  * Represents the authorizer function that will be executed to determine if a user is authorized to perform an action.

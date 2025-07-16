@@ -4,6 +4,7 @@
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
+[![pkg.pr.new](https://pkg.pr.new/badge/Barbapapazes/nuxt-authorization)](https://pkg.pr.new/~/Barbapapazes/nuxt-authorization)
 
 Handle authorization with ease in both Nuxt and Nitro.
 
