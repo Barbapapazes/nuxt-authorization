@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.3.5
+
+[compare changes](https://github.com/barbapapazes/nuxt-authorization/compare/v0.3.4...v0.3.5)
+
+### 🏡 Chore
+
+- Update deps ([8cdd008](https://github.com/barbapapazes/nuxt-authorization/commit/8cdd008))
+- Update deps ([38e52f6](https://github.com/barbapapazes/nuxt-authorization/commit/38e52f6))
+- Support nuxt 4 ([#62](https://github.com/barbapapazes/nuxt-authorization/pull/62))
+
+### 🤖 CI
+
+- Add pkg.pr.new ([91befd2](https://github.com/barbapapazes/nuxt-authorization/commit/91befd2))
+- Update node ([a406eea](https://github.com/barbapapazes/nuxt-authorization/commit/a406eea))
+- Update node ([e19cc19](https://github.com/barbapapazes/nuxt-authorization/commit/e19cc19))
+
+### ❤️ Contributors
+
+- Stanislav Janů ([@stanislav-janu](https://github.com/stanislav-janu))
+- Barbapapazes <e.soubiran25@gmail.com>
+
 ## v0.3.4
 
 [compare changes](https://github.com/barbapapazes/nuxt-authorization/compare/v0.3.3...v0.3.4)
