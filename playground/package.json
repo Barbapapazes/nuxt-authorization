@@ -9,9 +9,9 @@
     "typecheck": "nuxi typecheck"
   },
   "dependencies": {
-    "nuxt": "^3.21.5",
+    "nuxt": "^3.21.6",
     "typescript": "^5.9.3",
-    "vue": "^3.5.34",
+    "vue": "^3.5.35",
     "vue-tsc": "^2.2.12"
   }
 }
