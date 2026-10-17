@@ -1,10 +1,22 @@
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
-import { setup, createPage } from '@nuxt/test-utils/e2e'
+import { setup, createPage, $fetch } from '@nuxt/test-utils/e2e'
 
 describe('Components', async () => {
   await setup({
     rootDir: fileURLToPath(new URL('./fixtures/components', import.meta.url)),
+  })
+
+  it('uses shared abilities and server bouncer auto-imports', async () => {
+    expect(await $fetch('/api/authorization')).toEqual({ allows: true, denies: true })
+  })
+
+  it('preserves custom authorization errors on the server', async () => {
+    await expect($fetch('/api/authorization?scenario=denied')).rejects.toMatchObject({ statusCode: 404 })
+  })
+
+  it('does not grant access when the server resolver is missing', async () => {
+    await expect($fetch('/api/authorization?scenario=missing-resolver')).rejects.toMatchObject({ statusCode: 500 })
   })
 
   it('should render correctly', async () => {

@@ -1,3 +1,4 @@
+import { defineAbility } from 'nuxt-authorization/utils'
 import type { Product } from '~~/shared/types/product'
 import type { User } from '~~/shared/types/user'
 

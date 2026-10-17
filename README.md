@@ -33,6 +33,8 @@ npx nuxi module add nuxt-authorization
 
 That's it! You can now use the module in your Nuxt app ✨
 
+Nuxt 3 and Nuxt 4 are supported. For Nuxt 4's directory and TypeScript changes, see the [migration guide](https://nuxt.com/docs/4.x/getting-started/upgrade#migrating-to-nuxt-4).
+
 ## Documentation
 
 > [!NOTE]
@@ -42,7 +44,7 @@ That's it! You can now use the module in your Nuxt app ✨
 
 Before using the module and defining your first ability, you need to provide 2 resolvers. These functions are used internally to retrieve the user but you must implement them. This allows the module to be agnostic of the authentication layer.
 
-For the Nuxt app, create a new plugin in `plugins/authorization-resolver.ts`:
+For the Nuxt app, create a new plugin in `app/plugins/authorization-resolver.ts` (`plugins/authorization-resolver.ts` with Nuxt 3's directory structure):
 
 ```ts
 export default defineNuxtPlugin({
@@ -127,14 +129,15 @@ Easy!
 ### Define Abilities
 
 > [!NOTE]
-> With Nuxt 4, a new `shared` directory will be introduced to easily share code between the client and the server.
-> See [the video from Alexander Lichter](https://youtu.be/_m5ct5e8nVo?si=2iNcPVMttlIq5fLR).
+> Nuxt 4's `shared/` directory is outside `app/` and contains code used by both the app and the server. App and server auto-imports are not available inside shared code: explicitly import `defineAbility`, `allow`, and `deny` from `nuxt-authorization/utils`.
 
 Now the resolvers are set up, you can define your first ability. An ability is a function that takes at least the user, and returns a boolean to indicate if the user can perform the action. It can also take additional arguments.
 
 I recommend to create a new file `shared/utils/abilities.ts` to create your abilities:
 
 ```ts
+import { defineAbility } from 'nuxt-authorization/utils'
+
 export const listPosts = defineAbility(() => true) // Only authenticated users can list posts
 
 export const editPost = defineAbility((user: User, post: Post) => {
@@ -142,7 +145,7 @@ export const editPost = defineAbility((user: User, post: Post) => {
 })
 ```
 
-If you have many abilities, you could prefer to create a directory `shared/utils/abilities/` and create a file for each ability. Having the abilities in the `shared/utils` directory allows auto-import to work in the client while having a simple import in the server `~~/shared/utils/abilities`. **Remember that the shared folder only exports the first level of the directory.** So you have to export the abilities in the `shared/utils/abilities/index.ts` file.
+If you have many abilities, you could prefer to create a directory `shared/utils/abilities/` and create a file for each ability. In Nuxt 4, abilities in `shared/utils/` are auto-imported into both the app and the server; you can also import them explicitly from `#shared/utils/abilities`. Inside shared code, always import module utilities explicitly rather than importing from `#imports`. **Remember that Nuxt only scans the first level of `shared/utils/`.** So you have to export the abilities in the `shared/utils/abilities/index.ts` file.
 
 By default, guests are not allowed to perform any action and the ability is not called. This behavior can be changed per ability:
 
@@ -205,12 +208,14 @@ await authorize(event, editPost, post)
 You can customize the error message and the status code per return value of the ability. This can be useful to return a 404 instead of a 403 to keep the user unaware of the existence of the resource.
 
 ```ts
+import { defineAbility, deny } from 'nuxt-authorization/utils'
+
 export const editPost = defineAbility((user: User, post: Post) => {
   if(user.id === post.authorId) {
     return true // or allow()
   }
 
-  return deny('This post does not exist', 404)
+  return deny({ message: 'This post does not exist', statusCode: 404 })
 })
 ```
 

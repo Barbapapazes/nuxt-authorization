@@ -11,6 +11,9 @@ importers:
       '@nuxt/kit':
         specifier: ^3.21.5
         version: 3.21.6(magicast@0.3.5)
+      h3:
+        specifier: ^1.15.11
+        version: 1.15.11
     devDependencies:
       '@nuxt/devtools':
         specifier: ^2.7.0
