@@ -36,5 +36,6 @@ export async function authorize<Ability extends BouncerAbility<any>>(ability: Ab
         message: error.message,
       })
     }
+    throw error
   }
 }

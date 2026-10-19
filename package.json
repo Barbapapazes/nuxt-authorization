@@ -40,10 +40,11 @@
     "lint:fix": "eslint . --fix",
     "test": "vitest run",
     "test:watch": "vitest watch",
-    "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
+    "test:types": "vue-tsc --noEmit && cd playground && vue-tsc -b --noEmit"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.21.5"
+    "@nuxt/kit": "^3.21.5",
+    "h3": "^1.15.11"
   },
   "devDependencies": {
     "@nuxt/devtools": "^2.7.0",

@@ -1,7 +1,6 @@
-import type { H3Event } from 'h3'
+import { createError, type H3Event } from 'h3'
 import type { BouncerAbility, BouncerArgs } from '../../../utils'
 import { allows as _allows, denies as _denies, authorize as _authorize, AuthorizationError } from '../../../utils'
-import { createError } from '#imports'
 
 /**
  * Allows a user to perform an action based on their role and the data.
@@ -37,5 +36,6 @@ export async function authorize<Event extends H3Event, Ability extends BouncerAb
         message: error.message,
       })
     }
+    throw error
   }
 }
