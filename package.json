@@ -55,7 +55,7 @@
     "@vue/test-utils": "^2.4.10",
     "changelogen": "^0.6.2",
     "eslint": "^9.39.4",
-    "nuxt": "^3.21.5",
+    "nuxt": "^4.0.0",
     "playwright": "^1.60.0",
     "typescript": "^5.9.3",
     "vitest": "^3.2.4",
